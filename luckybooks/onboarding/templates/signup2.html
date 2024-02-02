@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <style>
+        .select_sex_button{
+            width: 169px;
+            height: 38px; 
+            padding: 10px; 
+            border-radius: 6px; 
+            border: 1px #1D1D1D solid;
+            background-color: #fafafa;
+            color: #1D1D1D;
+            justify-content: center; 
+            align-items: center;
+            cursor: pointer;
+            gap: 10px; 
+            display: flex
+            font-size: 12px; 
+            font-weight: 500; 
+            line-height: 18px;
+            word-wrap: break-word;
+        }
+        .select_sex_button:hover{
+            background-color: rgba(29, 29, 29, 0.20);
+        }
+        .select_sex_button:active{
+            background-color: #11CC58;
+            border-color: #fafafa;
+            color: #fafafa;
+        }
+        .select_age_button{
+            width: 111px;
+            height: 38px; 
+            padding: 10px; 
+            border-radius: 6px; 
+            border: 1px #1D1D1D solid;
+            background-color: #fafafa;
+            color: #1D1D1D;
+            justify-content: center; 
+            align-items: center;
+            cursor: pointer;
+            gap: 10px; 
+            display: flex
+            font-size: 12px; 
+            font-weight: 500; 
+            line-height: 18px; 
+            word-wrap: break-word;
+        }
+        .select_age_button:hover{
+            background-color: rgba(29, 29, 29, 0.20);
+        }
+        .select_age_button:active{
+            background-color: #11CC58;
+            border-color: #fafafa;
+            color: #fafafa;
+        }
+    </style> 
+</head>
+<body>
+    
+<div class="wrap">
+    <div class="header">
+        <button class="back_button" onclick="location.href='signup1'"><img src="../../static/images/back_idle.png"></button>
+        <div class="progress_bar_background"></div>
+        <div class="Rectangle5255" style="width: 138px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
+        <div class="Frame12553" style="left: 15px; top: 155px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+            <div style="font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">{id}님에 대해서<br/>조금 더 알려주시겠어요?</div>
+            <div style="color: #AAAAAA; font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">도서 추천 알고리즘을 위해 사용됩니다.</div>
+        </div>
+    </div>
+    <form>
+        <div class="Frame12558" style="left: 15px; top: 275px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+            <div style="font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">성별</div>
+            <div class="Frame12557" style="justify-content: flex-start; align-items: flex-start; gap: 7px; display: inline-flex">
+                <button class="select_sex_button" onClick="">남성</button>
+                <button class="select_sex_button" onClick="">여성</button>
+            </div>
+        </div>
+        <div class="Frame12559" style="left: 15px; top: 377px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 9px; display: inline-flex">
+            <div style="font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">연령대</div>
+            <div class="Frame6" style="width: 345px; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
+                <button class="select_age_button" onClick="">10대</button>
+                <button class="select_age_button" onClick="">20대</button>
+                <button class="select_age_button" onClick="">30대</button>
+            </div>
+            <div class="Frame6" style="width: 345px; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
+                <button class="select_age_button" onClick="" >40대</button>
+                <button class="select_age_button" onClick="" >50대</button>
+                <button class="select_age_button" onClick="" >60대</button>
+            </div>
+        </div>
+    </form>
+    <button class="onboardingNxtBtn" onclick="location.href='bookselect'" style="color: #FAFAFA; font-size: 16px; font-weight: 600; line-height: 18px; word-wrap: break-word">다음</button>
+</div>
+</body>
+</html>

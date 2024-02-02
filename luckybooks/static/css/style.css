@@ -1,0 +1,67 @@
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+    color: #1D1D1D;
+	src: url('../fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+.wrap {
+    display: flex;
+    width: 375px;
+    min-width: 375px; 
+    height: 812px; 
+    position: relative; 
+    background: #FAFAFA;
+    margin: 0px auto;
+}
+input::placeholder{
+    color: #D9D9D9;
+    font-size: 12px;
+    font-weight: 500;
+}
+.onboardingNxtBtn{
+    padding-left: 158px; 
+    padding-right: 158px; 
+    padding-top: 16px; 
+    padding-bottom: 16px; 
+    left: 15px; top: 683px; 
+    position: absolute; 
+    background: #11CC58; 
+    border-color: #fafafa;
+    border-width: 0px;
+    border-radius: 48px; 
+    overflow: hidden; 
+    justify-content: center; 
+    align-items: center;
+    cursor: pointer;
+    gap: 10px; 
+    display: inline-flex;
+    color: #FAFAFA; 
+    font-size: 16px; 
+    font-weight: 600; 
+    line-height: 18px; 
+    word-wrap: break-word;
+}
+.back_button{
+    width: 24px;
+    height: 24px;
+    left: 15px;
+    top: 80px;
+    background: #fafafa;
+    border-color: #fafafa;
+    border-width: 0px;
+    cursor: pointer;
+    position: absolute;
+    transform-origin: 0 0
+}
+.progress_bar_background{
+    width: 345px;
+    height: 3px; 
+    left: 15px; 
+    top: 125px; 
+    position: absolute; 
+    background: #AAAAAA; 
+    border-radius: 41px
+}
+  

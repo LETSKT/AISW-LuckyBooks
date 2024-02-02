@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <style>
+        .genre_btn{
+            padding-left: 20px; 
+            padding-right: 20px; 
+            padding-top: 4px; 
+            padding-bottom: 4px; 
+            border-radius: 21px; 
+            border: 1px #1D1D1D solid;
+            background-color: #fafafa;
+            color: #1D1D1D;
+            align-items: center; 
+            gap: 10px; 
+            display: flex
+        }
+        .genre_btn:hover{
+            background-color: rgba(29, 29, 29, 0.20);
+        }
+        .genre_btn:active{
+            background-color: #11CC58;
+            border-color: #fafafa;
+            color: #fafafa;
+        }
+    </style> 
+</head>
+<body>
+    
+<div class="wrap">
+    <div class="header">
+        <button class="back_button" onclick="location.href='bookselect'"><img src="../../static/images/back_idle.png"></button>
+        <div class="progress_bar_background"></div>
+        <div class="Rectangle5255" style="width: 276px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
+        <div class="Frame12553" style="left: 15px; top: 155px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+            <div style="font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">{id}님이 주로 즐겨읽는<br/>책 장르를 알려주세요</div>
+            <div style="color: #AAAAAA; font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">최대 3개까지 선택이 가능합니다.</div>
+        </div>
+    </div>
+    <form>
+        <div class="genrecontainer" style="width: 332px; left: 15px; top: 275px; height: 340px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 6px; flex-wrap: wrap; overflow: auto; display: inline-flex">
+            <button class="genre_btn" onclick="">소설</button>
+            <button class="genre_btn" onclick="">가정/육아</button>
+            <button class="genre_btn" onclick="">경제/경영</button>
+            <button class="genre_btn" onclick="">역사/문화</button>
+            <button class="genre_btn" onclick="">초등참고서</button>
+            <button class="genre_btn" onclick="">중/고등참고서</button>
+            <button class="genre_btn" onclick="">대학교재</button>
+            <button class="genre_btn" onclick="">취업/수험서</button>
+            <button class="genre_btn" onclick="">잡지</button>
+            <button class="genre_btn" onclick="">유아</button>
+            <button class="genre_btn" onclick="">시/에세이</button>
+            <button class="genre_btn" onclick="">청소년</button>
+            <button class="genre_btn" onclick="">어린이</button>
+            <button class="genre_btn" onclick="">요리</button>
+            <button class="genre_btn" onclick="">자기계발</button>
+            <button class="genre_btn" onclick="">종교</button>
+            <button class="genre_btn" onclick="">여행</button>
+            <button class="genre_btn" onclick="">외국어</button>
+            <button class="genre_btn" onclick="">만화</button>
+            <button class="genre_btn" onclick="">인문</button>
+            <button class="genre_btn" onclick="">취미/실용/스포츠</button>
+            <button class="genre_btn" onclick="">예술/대중문화</button>
+            <button class="genre_btn" onclick="">컴퓨터/IT</button>
+            <button class="genre_btn" onclick="">정치/사회</button>
+            <button class="genre_btn" onclick="">과학</button>
+            <button class="genre_btn" onclick="">건강</button>
+          </div>
+    </form>
+    <div style="left: 128px; top: 659px; position: absolute; color: #AAAAAA; font-size: 10px; font-weight: 500; line-height: 18px; word-wrap: break-word">장르는 추후 수정 할 수 있어요!</div>
+    <button class="onboardingNxtBtn" onclick="location.href='authorselect'">다음</button>
+</div>
+</body>
+</html>

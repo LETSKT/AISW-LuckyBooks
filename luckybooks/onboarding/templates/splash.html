@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        #startbtn {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top:10px;
+            padding-bottom: 10px;
+            left: 139.50px;
+            top: 400px;
+            position: absolute;
+            background: #11CC58;
+            border-radius: 35px;
+            border-color: #fafafa;
+            border-width: 0px;
+            justify-content:center;
+            align-items: center;
+            gap: 10px;
+            display: inline-flex;
+            cursor: pointer;
+            text-align: center;
+            color: #1D1D1D;
+            font-size: 16px;
+            font-weight: 600; 
+            line-height: 18px; 
+            word-wrap: break-word;
+        }
+        #welcome-txtbox{
+            width: 218px;
+            height: 114px;
+            left: 79px;
+            top: 244px;
+            position: absolute;
+            text-align: center;
+            color: #1D1D1D;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 50px;
+            word-wrap: break-word
+        }
+    </style>
+    <script></script>       
+</head>
+<body>
+    <div class="wrap" style="background-image: url('{% static 'images/welcomeclover.PNG' %}'); background-repeat: no-repeat; background-position: bottom;">
+        <div id="welcome-txtbox">나에게 딱 맞는<br/>맞춤 도서를<br/>추천해드릴게요</div>
+        <button id="startbtn" onclick="location.href='signup1'">시작하기</button>
+    </div>
+</body>
+</html>
