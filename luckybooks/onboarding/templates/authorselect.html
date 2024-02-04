@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
         #author_searchbar{
             width: 300px; 
@@ -29,7 +30,7 @@
     
 <div class="wrap">
     <div class="header">
-        <button class="back_button" onclick="location.href='genreselect'"><img src="../../static/images/back_idle.png"></button>
+        <button class="back_button" onclick="location.href='genreselect'"><img src="{% static 'images/back_idle.png' %}"></button>
         <div class="progress_bar_background"></div>
         <div class="Rectangle5255" style="width: 345px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
         <div class="Frame12553" style="left: 15px; top: 155px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">

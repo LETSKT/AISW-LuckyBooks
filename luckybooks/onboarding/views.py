@@ -8,8 +8,11 @@ def index(request):
 def signup1(request):
     return render(request, 'signup1.html')
 
-def signup2(request):
-    return render(request, 'signup2.html')
+def signup2(request, nickname):
+    data ={
+        'nickname' : nickname,
+    }
+    return render(request, 'signup2.html', data)
 
 def bookselect(request):
     return render(request, 'bookselect.html')

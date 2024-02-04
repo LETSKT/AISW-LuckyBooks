@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
-        #register_nickname_txtbox{
+        #register_nickname{
             width: 325px; 
             padding: 10px; 
             left: 15px; 
@@ -17,24 +18,33 @@
             gap: 10px; 
             display: inline-flex
         }
-        #register_nickname_txtbox:focus{
+        #register_nickname:focus{
             outline: 1.5px #11CC58 solid;
         }
-    </style>
-    <script></script>       
+    </style>     
 </head>
 <body>
 <div class="wrap">
     <div class="header">
-        <button class="back_button" onclick="location.href='/'"><img src="../../static/images/back_idle.png"></button>
+        <button class="back_button" onclick="location.href='/'"><img src="{% static 'images/back_idle.png' %}"></button>
         <div class="progress_bar_background"></div>
         <div class="Rectangle5255" style="width: 69px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
         <div style="left: 15px; top: 155px; position: absolute; font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">만나서 반가워요!<br/>닉네임을 설정해주세요</div>
     </div>
     <form>
-        <input id="register_nickname_txtbox" type="text" style="line-height: 18px; word-wrap: break-word" placeholder="ex.홍길동">
+        <input id="register_nickname" type="text" style="line-height: 18px; word-wrap: break-word" placeholder="ex.홍길동">
     </form>
-    <button class="onboardingNxtBtn" onclick="location.href='signup2'">다음</button>
+    <button class="onboardingNxtBtn" onclick='goSignup2()'>다음</button>
+    <script>
+        function goSignup2() {
+          const nickname = document.getElementById("register_nickname").value;
+          // URL 생성
+          const url = `./signup/nickname=${nickname}`;
+    
+          // 새 창에서 URL 열기
+          window.open(url, "_self");
+        }
+      </script>
 </div>
 </body>
 </html>

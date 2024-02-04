@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
     </style>
     <script></script>       
 </head>
 <body>
-    <div style="display: flex; width: 375px; min-width: 375px; height: 812px; position: relative; background: #11CC58; margin: 0px auto; background-image: url('../../static/images/clover.PNG'); background-repeat: no-repeat; background-position: center;">
+    <div style="display: flex; width: 375px; min-width: 375px; height: 812px; position: relative; background: #11CC58; margin: 0px auto; background-image: url('{% static 'images/clover.PNG' %}'); background-repeat: no-repeat; background-position: center;">
         <div style="top: 510px; left: 75.67px; position: absolute; text-align: center; color: #1D1D1D; font-size: 24px; font-weight: 600; line-height: 32px; word-wrap: break-word">{id}님이 좋아할 책을<br/>선정하고 있어요!</div>
     </div>
 </body>

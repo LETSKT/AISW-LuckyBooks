@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
-        .select_sex_button{
+        .select_gender_button{
             width: 169px;
             height: 38px; 
             padding: 10px; 
@@ -15,16 +16,16 @@
             align-items: center;
             cursor: pointer;
             gap: 10px; 
-            display: flex
+            display: flex;
             font-size: 12px; 
             font-weight: 500; 
             line-height: 18px;
             word-wrap: break-word;
         }
-        .select_sex_button:hover{
+        .select_gender_button:hover{
             background-color: rgba(29, 29, 29, 0.20);
         }
-        .select_sex_button:active{
+        .select_gender_button.active{
             background-color: #11CC58;
             border-color: #fafafa;
             color: #fafafa;
@@ -41,7 +42,7 @@
             align-items: center;
             cursor: pointer;
             gap: 10px; 
-            display: flex
+            display: flex;
             font-size: 12px; 
             font-weight: 500; 
             line-height: 18px; 
@@ -50,7 +51,7 @@
         .select_age_button:hover{
             background-color: rgba(29, 29, 29, 0.20);
         }
-        .select_age_button:active{
+        .select_age_button.active{
             background-color: #11CC58;
             border-color: #fafafa;
             color: #fafafa;
@@ -58,14 +59,13 @@
     </style> 
 </head>
 <body>
-    
 <div class="wrap">
     <div class="header">
-        <button class="back_button" onclick="location.href='signup1'"><img src="../../static/images/back_idle.png"></button>
+        <button class="back_button" onclick="location.href='/signup'"><img src="{% static 'images/back_idle.png' %}"></button>
         <div class="progress_bar_background"></div>
         <div class="Rectangle5255" style="width: 138px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
         <div class="Frame12553" style="left: 15px; top: 155px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-            <div style="font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">{id}님에 대해서<br/>조금 더 알려주시겠어요?</div>
+            <div style="font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">{{nickname}}님에 대해서<br/>조금 더 알려주시겠어요?</div>
             <div style="color: #AAAAAA; font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">도서 추천 알고리즘을 위해 사용됩니다.</div>
         </div>
     </div>
@@ -73,25 +73,67 @@
         <div class="Frame12558" style="left: 15px; top: 275px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
             <div style="font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">성별</div>
             <div class="Frame12557" style="justify-content: flex-start; align-items: flex-start; gap: 7px; display: inline-flex">
-                <button class="select_sex_button" onClick="">남성</button>
-                <button class="select_sex_button" onClick="">여성</button>
+                <button type="button" value="male" class="select_gender_button" onClick="toggleActiveS(event)">남성</button>
+                <button type="button" value="female" class="select_gender_button" onClick="toggleActiveS(event)">여성</button>
             </div>
         </div>
         <div class="Frame12559" style="left: 15px; top: 377px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 9px; display: inline-flex">
             <div style="font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">연령대</div>
             <div class="Frame6" style="width: 345px; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
-                <button class="select_age_button" onClick="">10대</button>
-                <button class="select_age_button" onClick="">20대</button>
-                <button class="select_age_button" onClick="">30대</button>
+                <button type="button" value="10" class="select_age_button" onClick="toggleActiveA(event)">10대</button>
+                <button type="button" value="20" class="select_age_button" onClick="toggleActiveA(event)">20대</button>
+                <button type="button" value="30" class="select_age_button" onClick="toggleActiveA(event)">30대</button>
             </div>
             <div class="Frame6" style="width: 345px; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
-                <button class="select_age_button" onClick="" >40대</button>
-                <button class="select_age_button" onClick="" >50대</button>
-                <button class="select_age_button" onClick="" >60대</button>
+                <button type="button" value="40" class="select_age_button" onClick="toggleActiveA(event)" >40대</button>
+                <button type="button" value="50" class="select_age_button" onClick="toggleActiveA(event)" >50대</button>
+                <button type="button" value="60" class="select_age_button" onClick="toggleActiveA(event)" >60대</button>
             </div>
         </div>
     </form>
-    <button class="onboardingNxtBtn" onclick="location.href='bookselect'" style="color: #FAFAFA; font-size: 16px; font-weight: 600; line-height: 18px; word-wrap: break-word">다음</button>
+    <button class="onboardingNxtBtn" onclick="goBookselect(event)">다음</button>
 </div>
+<script>
+    function toggleActiveS(event) {
+        var target = event.target || event.srcElement;
+        var buttonList = document.querySelectorAll(".select_gender_button");
+        buttonList.forEach(function(button) {
+          if (button === target && !button.classList.contains("active")) {
+            return button.classList.add("active");
+          }
+          return button.classList.remove("active");
+        });
+      }
+      function toggleActiveA(event) {
+        var target = event.target || event.srcElement;
+        var buttonList = document.querySelectorAll(".select_age_button");
+        buttonList.forEach(function(button) {
+          if (button === target && !button.classList.contains("active")) {
+            return button.classList.add("active");
+          }
+          return button.classList.remove("active");
+        });
+      }
+    function goBookselect(event) {
+        const nickname = document.getElementById("register_nickname").value;
+        const gender = ''
+        const age = ''
+        var buttonList = document.querySelectorAll(".select_gender_button");
+        buttonList.forEach(function(button) {
+            if (button === target && button.classList.contains("active")) {
+              gender = event.target.dataset.value
+            }
+        buttonList = document.querySelectorAll(".select_age_button");
+            buttonList.forEach(function(button) {
+              if (button === target && button.classList.contains("active")) {
+                age = event.target.dataset.value
+              }
+        // URL 생성
+        const url = `./signup/nickname=${nickname}%gender=${gender}%age=${age}`;
+  
+        // 새 창에서 URL 열기
+        window.open(url, "_self");
+      }
+</script>
 </body>
 </html>
