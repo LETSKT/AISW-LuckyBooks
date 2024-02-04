@@ -115,21 +115,23 @@
         });
       }
     function goBookselect(event) {
-        const nickname = document.getElementById("register_nickname").value;
-        const gender = ''
-        const age = ''
-        var buttonList = document.querySelectorAll(".select_gender_button");
-        buttonList.forEach(function(button) {
-            if (button === target && button.classList.contains("active")) {
-              gender = event.target.dataset.value
+        const nickname = '{{nickname}}';
+        let gender = ''
+        let age = ''
+        const genderButtons = document.querySelectorAll(".select_gender_button");
+        genderButtons.forEach(function(button) {
+            if (button.classList.contains("active")) {
+              gender = button.value
             }
-        buttonList = document.querySelectorAll(".select_age_button");
-            buttonList.forEach(function(button) {
-              if (button === target && button.classList.contains("active")) {
-                age = event.target.dataset.value
-              }
+        });
+        const ageButtons = document.querySelectorAll(".select_age_button");
+        ageButtons.forEach(function(button) {
+            if (button.classList.contains("active")) {
+                age = button.value
+            }
+        });
         // URL 생성
-        const url = `./signup/nickname=${nickname}%gender=${gender}%age=${age}`;
+        const url = `./bookselect/nickname=${nickname}%gender=${gender}%age=${age}`;
   
         // 새 창에서 URL 열기
         window.open(url, "_self");

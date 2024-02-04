@@ -14,8 +14,13 @@ def signup2(request, nickname):
     }
     return render(request, 'signup2.html', data)
 
-def bookselect(request):
-    return render(request, 'bookselect.html')
+def bookselect(request, nickname, gender, age):
+    data ={
+        'nickname' : nickname,
+        'gender' : gender,
+        'age' : age,
+    }
+    return render(request, 'bookselect.html', data)
 
 def genreselect(request):
     return render(request, 'genreselect.html')

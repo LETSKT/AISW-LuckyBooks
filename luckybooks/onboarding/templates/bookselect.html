@@ -10,11 +10,11 @@
     
 <div class="wrap">
     <div class="header">
-        <button class="back_button" onclick="location.href='/'"><img src="../../static/images/back_idle.png"></button>
+        <button class="back_button" onclick="location.href='/signup/nickname={{nickname}}'"><img src="../../static/images/back_idle.png"></button>
         <div class="progress_bar_background"></div>
         <div class="Rectangle5255" style="width: 207px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
         <div class="Frame12553" style="left: 15px; top: 155px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-            <div style="font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">{id}님이<br/>읽어본 책들을 골라주세요</div>
+            <div style="font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">{{nickname}}님이<br/>읽어본 책들을 골라주세요</div>
             <div style="color: #AAAAAA; font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">최대 3개까지 선택이 가능합니다.</div>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
         <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
       </div>
-    <button class="onboardingNxtBtn" onclick="location.href='genreselect'">다음</button>
+    <button class="onboardingNxtBtn" onclick="location.href='/genreselect'">다음</button>
 </div>
 </body>
 </html>
