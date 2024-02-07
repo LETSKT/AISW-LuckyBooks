@@ -15,12 +15,12 @@
             color: #1D1D1D;
             align-items: center; 
             gap: 10px; 
-            display: flex
+            display: flex;
         }
         .genre_btn:hover{
             background-color: rgba(29, 29, 29, 0.20);
         }
-        .genre_btn:active{
+        .genre_btn.active{
             background-color: #11CC58;
             border-color: #fafafa;
             color: #fafafa;
@@ -41,36 +41,62 @@
     </div>
     <form>
         <div class="genrecontainer" style="width: 332px; left: 15px; top: 275px; height: 340px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 6px; flex-wrap: wrap; overflow: auto; display: inline-flex">
-            <button class="genre_btn" onclick="">소설</button>
-            <button class="genre_btn" onclick="">가정/육아</button>
-            <button class="genre_btn" onclick="">경제/경영</button>
-            <button class="genre_btn" onclick="">역사/문화</button>
-            <button class="genre_btn" onclick="">초등참고서</button>
-            <button class="genre_btn" onclick="">중/고등참고서</button>
-            <button class="genre_btn" onclick="">대학교재</button>
-            <button class="genre_btn" onclick="">취업/수험서</button>
-            <button class="genre_btn" onclick="">잡지</button>
-            <button class="genre_btn" onclick="">유아</button>
-            <button class="genre_btn" onclick="">시/에세이</button>
-            <button class="genre_btn" onclick="">청소년</button>
-            <button class="genre_btn" onclick="">어린이</button>
-            <button class="genre_btn" onclick="">요리</button>
-            <button class="genre_btn" onclick="">자기계발</button>
-            <button class="genre_btn" onclick="">종교</button>
-            <button class="genre_btn" onclick="">여행</button>
-            <button class="genre_btn" onclick="">외국어</button>
-            <button class="genre_btn" onclick="">만화</button>
-            <button class="genre_btn" onclick="">인문</button>
-            <button class="genre_btn" onclick="">취미/실용/스포츠</button>
-            <button class="genre_btn" onclick="">예술/대중문화</button>
-            <button class="genre_btn" onclick="">컴퓨터/IT</button>
-            <button class="genre_btn" onclick="">정치/사회</button>
-            <button class="genre_btn" onclick="">과학</button>
-            <button class="genre_btn" onclick="">건강</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">소설</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">가정/육아</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">경제/경영</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">역사/문화</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">초등참고서</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">중/고등참고서</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">대학교재</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">취업/수험서</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">잡지</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">유아</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">시/에세이</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">청소년</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">어린이</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">요리</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">자기계발</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">종교</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">여행</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">외국어</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">만화</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">인문</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">취미/실용/스포츠</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">예술/대중문화</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">컴퓨터/IT</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">정치/사회</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">과학</button>
+            <button type="button" class="genre_btn" onclick="toggleButton(this)">건강</button>
           </div>
     </form>
     <div style="left: 128px; top: 659px; position: absolute; color: #AAAAAA; font-size: 10px; font-weight: 500; line-height: 18px; word-wrap: break-word">장르는 추후 수정 할 수 있어요!</div>
-    <button class="onboardingNxtBtn" onclick="location.href='/authorselect'">다음</button>
+    <button class="onboardingNxtBtn" id="genreNxtBtn" onclick="location.href='/authorselect'" disabled>다음</button>
 </div>
+<script>
+    let activeCount2 = 0;
+    const nextBtn = document.getElementById("genreNxtBtn");
+    function toggleButton(button) {
+        if (button.classList.contains("active")) {
+            button.classList.remove("active");
+            activeCount2--;
+            updateNextButton()
+        } else {
+            if (activeCount2 >= 3) {
+                updateNextButton()
+                return;
+            }
+            button.classList.add("active");
+            activeCount2++;
+            updateNextButton()
+        }
+    }
+    function updateNextButton() {
+        if (activeCount2 === 3) {
+            nextBtn.disabled = false;
+        } else {
+            nextBtn.disabled = true;
+        }
+    }
+</script>
 </body>
 </html>

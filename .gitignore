@@ -10,3 +10,4 @@ luckybooks/luckybooks/__pycache__/wsgi.cpython-312.pyc
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+luckybooks/onboarding/templates/test.html

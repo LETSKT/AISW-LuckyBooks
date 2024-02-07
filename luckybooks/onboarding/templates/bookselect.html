@@ -4,13 +4,30 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <style>
+        .bookBtn{
+            width: 81px; 
+            height: 120px;
+            padding: 0;
+            border: 0;
+            position: relative;
+        }
+        .bookimg{
+            position:absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .check-image{
+            position:absolute;
+            top: 44px;
+            left: 24.5px;
+        }
     </style> 
 </head>
 <body>
     
 <div class="wrap">
     <div class="header">
-        <button class="back_button" onclick="location.href='/signup/nickname={{nickname}}'"><img src="../../static/images/back_idle.png"></button>
+        <button class="back_button" onclick="location.href='/signup/nickname={{nickname}}'"><img src="{% static 'images/back_idle.png' %}"></button>
         <div class="progress_bar_background"></div>
         <div class="Rectangle5255" style="width: 207px; height: 3px; left: 15px; top: 125px; position: absolute; background: #11CC58; border-radius: 41px"></div>
         <div class="Frame12553" style="left: 15px; top: 155px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
@@ -18,32 +35,60 @@
             <div style="color: #AAAAAA; font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">최대 3개까지 선택이 가능합니다.</div>
         </div>
     </div>
-    <div class="Frame12547" style="width: 345px; height: 503px; left: 15px; top: 275px; position: absolute; overflow: auto; justify-content: flex-start; align-items: flex-start; gap: 7px; flex-wrap: wrap; display: inline-flex">
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
-        <img class="bookimg" style="width: 81px; height: 120px" src="https://via.placeholder.com/81x120" />
+    <div id="bookBtns" style="width: 345px; height: 503px; left: 15px; top: 275px; position: absolute; overflow: auto; justify-content: flex-start; align-items: flex-start; gap: 7px; flex-wrap: wrap; display: inline-flex">
+        <button class="bookBtn" value="1" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="2" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="3" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="4" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="5" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="6" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="7" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="8" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="9" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="10" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="11" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="12" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="13" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="14" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="15" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="16" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="17" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="18" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="19" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
+        <button class="bookBtn" value="20" onclick="toggleButton(this)"><img class="bookimg" src="https://via.placeholder.com/81x120" /></button>
       </div>
-    <button class="onboardingNxtBtn" onclick="location.href='/genreselect'">다음</button>
+    <button class="onboardingNxtBtn" id="bookSelctNxtBtn" onclick="location.href='/genreselect'" disabled>다음</button>
 </div>
+<script>
+    let activeCount1 = 0;
+    const nextBtn = document.getElementById("bookSelctNxtBtn");
+    function toggleButton(button) {
+        if (button.classList.contains("active")) {
+            button.classList.remove("active");
+            button.querySelector('.check-image').remove();
+            activeCount1--;
+            updateNextButton()
+        } else {
+            if (activeCount1 >= 3) {
+                updateNextButton()
+                return;
+            }
+            button.classList.add("active");
+            const img = document.createElement('img');
+            img.src = '{% static 'images/check.png' %}';
+            img.classList.add('check-image');
+            button.appendChild(img);
+            activeCount1++;
+            updateNextButton()
+        }
+    }
+    function updateNextButton() {
+        if (activeCount1 === 3) {
+            nextBtn.disabled = false;
+        } else {
+            nextBtn.disabled = true;
+        }
+    }
+</script>
 </body>
 </html>

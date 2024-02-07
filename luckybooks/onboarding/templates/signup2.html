@@ -91,15 +91,25 @@
             </div>
         </div>
     </form>
-    <button class="onboardingNxtBtn" onclick="goBookselect(event)">다음</button>
+    <button class="onboardingNxtBtn" id="signup2NxtBtn" onclick="goBookselect(event)" disabled>다음</button>
 </div>
 <script>
+    let activeCount1 = 0;
+    const textbox = document.getElementById("register_nickname");
+    const nextBtn1 = document.getElementById("signup2NxtBtn");
+      
     function toggleActiveS(event) {
         var target = event.target || event.srcElement;
         var buttonList = document.querySelectorAll(".select_gender_button");
         buttonList.forEach(function(button) {
           if (button === target && !button.classList.contains("active")) {
+            activeCount1++;
+            updateNextButton1()
             return button.classList.add("active");
+          }
+          if (button.classList.contains("active")) {
+            activeCount1--;
+            updateNextButton1()
           }
           return button.classList.remove("active");
         });
@@ -109,11 +119,24 @@
         var buttonList = document.querySelectorAll(".select_age_button");
         buttonList.forEach(function(button) {
           if (button === target && !button.classList.contains("active")) {
+            activeCount1++;
+            updateNextButton1()
             return button.classList.add("active");
+          }
+          if (button.classList.contains("active")) {
+            activeCount1--;
+            updateNextButton1()
           }
           return button.classList.remove("active");
         });
       }
+    function updateNextButton1() {
+        if (activeCount1 === 2) {
+            nextBtn1.disabled = false;
+        } else {
+            nextBtn1.disabled = true;
+        }
+    }
     function goBookselect(event) {
         const nickname = '{{nickname}}';
         let gender = ''

@@ -24,6 +24,49 @@
         #author_searchbar:focus{
             outline: 1.5px #11CC58 solid;
         }
+        #authors{
+            width: 100px; 
+            padding: 10px 10px 10px 35px;
+        }
+        #authors option{
+            width: 100px; 
+            padding: 10px 10px 10px 35px;
+            color: #fff;
+        }
+        #authors option:hover{
+            width: 100px; 
+            padding: 10px 10px 10px 35px;
+            color: #fff;
+        }
+        datalist option {
+            font-size: 0.8em;
+            padding: 0.3em 1em;
+            background-color: red;
+            cursor: pointer;
+        }
+        #buttons{
+            left: 15px; 
+            top: 341px; 
+            position: absolute;
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+            display: inline-flex;
+        }
+        #buttons button{
+            padding-left: 20px; 
+            padding-right: 20px; 
+            padding-top: 4px; 
+            padding-bottom: 4px; 
+            border-radius: 21px; 
+            border: 1px #1D1D1D solid;
+            align-items: center; 
+            gap: 10px; 
+            display: flex;
+            background-color: #11CC58;
+            border-color: #fafafa;
+            color: #fafafa;
+        }
     </style> 
 </head>
 <body>
@@ -38,12 +81,64 @@
             <div style="color: #AAAAAA; font-size: 12px; font-weight: 500; line-height: 18px; word-wrap: break-word">최대 3명까지 선택이 가능합니다.</div>
         </div>
     </div>
-    <form>
-        <div id="author_searchbar_wrap">
-        <input id="author_searchbar" type="text" style="line-height: 18px; word-wrap: break-word" placeholder="작가명 검색">
-        </div>
-    </form>
-    <button class="onboardingNxtBtn" onclick="location.href='/underselection'">다음</button>
+    <div id="author_searchbar_wrap">
+    <input id="author_searchbar" type="text" list="authors" style="line-height: 18px; word-wrap: break-word" placeholder="작가명 검색">
+    <datalist id="authors">
+        <option value="김소월"/>
+        <option value="윤동주"/>
+        <option value="허균"/>
+        <option value="이육사"/>
+        <option value="박경리"/>
+        <option value="이문열"/>
+    </datalist>
+    <div id="buttons"></div>
+    <button class="onboardingNxtBtn" id="authorNxtBtn" onclick="location.href='/underselection'" disabled>다음</button>
 </div>
+<script>
+    const searchInput = document.getElementById('author_searchbar');
+    const buttonsContainer = document.getElementById('buttons');
+    let activeCount3 = 0;
+    const nextBtn = document.getElementById("authorNxtBtn");
+
+    searchInput.addEventListener('change', () => {
+        const selectedValue = searchInput.value;
+
+  // 이미 선택된 값이면 아무것도 하지 않음
+        if (buttonsContainer.querySelector(`button[value="${selectedValue}"]`)) {
+            searchInput.value = '';
+            return;
+        }
+
+  // 최대 3개까지만 버튼 생성
+        if (buttonsContainer.children.length >= 3) {
+            buttonsContainer.removeChild(buttonsContainer.firstChild);
+            activeCount3--;
+            updateNextButton()
+        }
+
+  // 버튼 생성
+        const button = document.createElement('button');
+        button.textContent = selectedValue;
+        button.value = selectedValue;
+        button.classList.add('button');
+        activeCount3++;
+        updateNextButton()
+        button.addEventListener('click', () => {
+            button.remove();
+            activeCount3--;
+            updateNextButton()
+        });
+        buttonsContainer.appendChild(button);
+        // 버튼 생성 후 textbox value 삭제
+        searchInput.value = '';
+    });
+    function updateNextButton() {
+        if (activeCount3 === 3) {
+            nextBtn.disabled = false;
+        } else {
+            nextBtn.disabled = true;
+        }
+    }
+</script>
 </body>
 </html>

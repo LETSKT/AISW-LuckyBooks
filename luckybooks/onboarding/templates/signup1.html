@@ -32,10 +32,20 @@
         <div style="left: 15px; top: 155px; position: absolute; font-size: 20px; font-weight: 600; line-height: 28px; word-wrap: break-word">만나서 반가워요!<br/>닉네임을 설정해주세요</div>
     </div>
     <form>
-        <input id="register_nickname" type="text" style="line-height: 18px; word-wrap: break-word" placeholder="ex.홍길동">
+        <input id="register_nickname" type="text" style="line-height: 18px; word-wrap: break-word" placeholder="ex.홍길동" onkeyup="checkInput()">
     </form>
-    <button class="onboardingNxtBtn" onclick='goSignup2()'>다음</button>
+    <button class="onboardingNxtBtn" id="signup1NxtBtn" onclick='goSignup2()' disabled>다음</button>
     <script>
+        function checkInput() {
+            const textbox = document.getElementById("register_nickname");
+            const button = document.getElementById("signup1NxtBtn");
+          
+            if (textbox.value === "") {
+              button.disabled = true;
+            } else {
+              button.disabled = false;
+            }
+          }
         function goSignup2() {
           const nickname = document.getElementById("register_nickname").value;
           // URL 생성
