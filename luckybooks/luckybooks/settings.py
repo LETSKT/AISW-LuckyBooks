@@ -83,8 +83,14 @@ WSGI_APPLICATION = 'luckybooks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'ENGINE': 'djongo',
+    'NAME': 'luckybooks',
+    'CLIENT': {
+        'host': 'mongodb+srv://admin:admin@dbjungle.now9lz2.mongodb.net/?ssl=true&ssl_cert_reqs=CERT_NONE&retryWrites=true&w=majority',
+        'username': 'admin',
+        'password': 'admin',
+        'authMechanism': 'SCRAM-SHA-1',
+        }
     }
 }
 

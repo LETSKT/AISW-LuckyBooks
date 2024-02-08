@@ -1,13 +1,7 @@
 venv/
-luckybooks/luckybooks/__pycache__/__init__.cpython-311.pyc
-luckybooks/luckybooks/__pycache__/__init__.cpython-312.pyc
-luckybooks/luckybooks/__pycache__/settings.cpython-311.pyc
-luckybooks/luckybooks/__pycache__/settings.cpython-312.pyc
-luckybooks/luckybooks/__pycache__/urls.cpython-311.pyc
-luckybooks/luckybooks/__pycache__/urls.cpython-312.pyc
-luckybooks/luckybooks/__pycache__/wsgi.cpython-311.pyc
-luckybooks/luckybooks/__pycache__/wsgi.cpython-312.pyc
+luckybooks/luckybooks/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 luckybooks/onboarding/templates/test.html
+luckybooks/books.json
