@@ -20,3 +20,7 @@ class User(models.Model):
     preferred_books = models.ManyToManyField(Book)
     preferred_authors = models.ManyToManyField(Book, through='BookAuthor')
     preferred_genres = models.ManyToManyField(Book, through='BookGenre')
+    
+class BookShelf(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    books = models.ManyToManyField(Book)
