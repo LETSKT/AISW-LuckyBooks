@@ -24,4 +24,3 @@ class User(models.Model):
 class BookShelf(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     books = models.ManyToManyField(Book)
-    
