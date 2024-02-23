@@ -9,4 +9,5 @@ urlpatterns = [
     path("genreselect", views.genreselect, name="genreselect"),
     path("authorselect", views.authorselect, name="authorselect"),
     path("underselection", views.underselection, name="underselection"),
+    path("main", views.main, name="main"),
 ]

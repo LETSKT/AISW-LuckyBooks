@@ -30,3 +30,6 @@ def authorselect(request):
 
 def underselection(request):
     return render(request, 'underselection.html')
+
+def main(request):
+    return render(request, 'main1.html')
