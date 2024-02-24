@@ -5,3 +5,4 @@ __pycache__/
 *.py[cod]
 luckybooks/onboarding/templates/test.html
 luckybooks/books.json
+luckybooks/luckybooks/.env
