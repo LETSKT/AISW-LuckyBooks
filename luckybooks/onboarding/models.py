@@ -11,8 +11,7 @@ class Book(models.Model):
     category = models.CharField(max_length=255)
     def __str__(self):
         return self.title
-    
-    
+     
 class User(models.Model):
     nickname = models.CharField(max_length=127)
     gender = models.CharField(max_length=1)
